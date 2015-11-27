@@ -1737,14 +1737,15 @@ ace.define("ace/autocomplete/text_completer",["require","exports","module","ace/
     exports.getCompletions = function(editor, session, pos, prefix, callback) {
         var wordScore = wordDistance(session, pos, prefix);
         var wordList = Object.keys(wordScore);
-        callback(null, wordList.map(function(word) {
-            return {
-                caption: word,
-                value: word,
-                score: wordScore[word],
-                meta: "local"
-            };
-        }));
+        // callback(null, []);
+        // callback(null, wordList.map(function(word) {
+            // return {
+                // caption: word,
+                // value: word,
+                // score: wordScore[word],
+                // meta: "local"
+            // };
+        // }));
     };
 });
 
@@ -1800,7 +1801,7 @@ var snippetCompleter = {
     }
 };
 
-var completers = [snippetCompleter, textCompleter, keyWordCompleter];
+var completers = [];//snippetCompleter, textCompleter, keyWordCompleter];
 exports.setCompleters = function(val) {
     completers = val || [];
 };
